@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Edit from "./Edit";
-import Search from "./Search";
+import { useEffect, useState } from "react";
 import AddNotes from "./AddNotes";
 import DeleteNotes from "./DeleteNotes";
-import RefreshSearch from "./RefreshSearch";
+import Edit from "./Edit";
+import Search from "./Search";
 
 const Body = () => {
   const [title, setTitle] = useState("");

@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-function Search({
-  noteList,
-  setTempNoteList,
-  searchText,
-  setSearchText,
-  setIsSearchActive,
-}) {
+function Search({ noteList, setTempNoteList, searchText, setSearchText }) {
   useEffect(() => {
     const filtered = noteList.filter((note) =>
       note.title.toLowerCase().includes(searchText.toLowerCase())

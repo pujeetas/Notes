@@ -22,9 +22,6 @@ const Body = () => {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(noteList));
-  }, [noteList]);
-
-  useEffect(() => {
     setTempNoteList(noteList);
   }, [noteList]);
 

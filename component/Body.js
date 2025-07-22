@@ -12,8 +12,6 @@ const Body = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [noteId, setNoteId] = useState(null);
 
-  const [isSearchActive, setIsSearchActive] = useState(false);
-
   const [searchText, setSearchText] = useState("");
 
   const [noteList, setNotesList] = useState(() => {
@@ -52,7 +50,6 @@ const Body = () => {
       <Search
         noteList={noteList}
         setTempNoteList={setTempNoteList}
-        setIsSearchActive={setIsSearchActive}
         searchText={searchText}
         setSearchText={setSearchText}
       />

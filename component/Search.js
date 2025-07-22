@@ -13,12 +13,8 @@ function Search({
     );
 
     setTempNoteList(filtered);
-    if (searchText.trim() !== "") {
-      setIsSearchActive(true);
-    } else {
-      setIsSearchActive(false);
-    }
   }, [searchText, noteList]);
+
   return (
     <div className="search-container">
       <div className="search-bar">

@@ -13,6 +13,8 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
+  const [activeDeleteId, setActiveDeleteId] = useState(null);
+
   const [noteList, setNotesList] = useState(() => {
     const stored = localStorage.getItem("notes");
     return stored ? JSON.parse(stored) : [];
@@ -24,6 +26,13 @@ const Body = () => {
     localStorage.setItem("notes", JSON.stringify(noteList));
     setTempNoteList(noteList);
   }, [noteList]);
+
+  function deleteConfirmationFunction(id) {
+    const updatedList = noteList.filter((note) => note.id !== id);
+    setTempNoteList(updatedList);
+    setNotesList(updatedList);
+    setActiveDeleteId(null);
+  }
 
   function handleEditNotes(id) {
     const notesToEdit = noteList.find((note) => note.id === id);
@@ -77,6 +86,30 @@ const Body = () => {
             setNotes={setNotes}
           />
         )}
+        {activeDeleteId !== null && (
+          <div className="modal-overlay">
+            <div className="del-btn-modal">
+              <h3>Are you sure you want to delete?</h3>
+              <div className="del-box-btns">
+                <button
+                  className="btn btn-delete"
+                  onClick={() => {
+                    deleteConfirmationFunction(activeDeleteId);
+                    setActiveDeleteId(null);
+                  }}
+                >
+                  Delete
+                </button>
+                <button
+                  className="btn cancel-btn"
+                  onClick={() => setActiveDeleteId(null)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="notes-list">
           <div className="notes-refresh">
@@ -99,9 +132,7 @@ const Body = () => {
                   </button>
                   <DeleteNotes
                     id={note.id}
-                    noteList={noteList}
-                    setTempNoteList={setTempNoteList}
-                    setNotesList={setNotesList}
+                    setActiveDeleteId={setActiveDeleteId}
                   />
                 </div>
               </div>

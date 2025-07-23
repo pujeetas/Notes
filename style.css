@@ -177,19 +177,6 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.refresh-btn button {
-    background-color: white;
-    border-style: none;
-    position: absolute;
-    color: #4a5568;
-    left: 11rem;
-    top: 15%
-}
-
-.refresh-btn button:hover {
-    cursor: pointer;
-}
-
 .notes-grid {
     display: grid;
     gap: 1.5rem;
@@ -398,4 +385,42 @@ body {
     border-radius: 15px;
     border-style: none;
     padding-left: 10px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.del-btn-modal {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.del-btn-modal h3 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.del-box-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }

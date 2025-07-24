@@ -158,6 +158,15 @@ body {
     box-shadow: 0 3px 10px rgba(250, 112, 154, 0.4);
 }
 
+.btn-pin {
+    background-color: white;
+    border-style: none;
+}
+
+.btn-pin:hover {
+    cursor: pointer;
+}
+
 /* Notes List */
 .notes-list {
     background-color: white;

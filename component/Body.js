@@ -3,23 +3,19 @@ import AddNotes from "./AddNotes";
 import DeleteNotes from "./DeleteNotes";
 import Edit from "./Edit";
 import Search from "./Search";
+import { Pin, PinOff } from "lucide-react";
 
 const Body = () => {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [noteId, setNoteId] = useState(null);
-
   const [searchText, setSearchText] = useState("");
-
   const [activeDeleteId, setActiveDeleteId] = useState(null);
-
   const [noteList, setNotesList] = useState(() => {
     const stored = localStorage.getItem("notes");
     return stored ? JSON.parse(stored) : [];
   });
-
   const [tempNoteList, setTempNoteList] = useState([]);
 
   useEffect(() => {
@@ -43,6 +39,26 @@ const Body = () => {
       setIsModalOpen(true);
     }
   }
+
+  function handlePin(id) {
+    const updatedList = tempNoteList.map((note) =>
+      note.id === id ? { ...note, isPinned: !note.isPinned } : note
+    );
+    setTempNoteList(updatedList);
+    setNotesList(updatedList);
+  }
+
+  const handleSort = (a, b) => {
+    if (a.isPinned && !b.isPinned) {
+      return -1;
+    }
+    if (!a.isPinned && b.isPinned) {
+      return 1;
+    }
+    if (!a.isPinned && !b.isPinned) {
+      return a.createdAt - b.createdAt;
+    }
+  };
 
   return (
     <div className="notes-app">
@@ -116,11 +132,17 @@ const Body = () => {
             <h2>Your Notes ({tempNoteList.length})</h2>
           </div>
           <div className="notes-grid">
-            {tempNoteList.map((note) => (
+            {[...tempNoteList].sort(handleSort).map((note) => (
               <div key={note.id} className="note-card">
                 <div className="note-header">
                   <h3 className="note-title">{note.title}</h3>
                   <span className="note-date">{note.createdAt}</span>
+                  <button
+                    className="btn-pin"
+                    onClick={() => handlePin(note.id)}
+                  >
+                    {note.isPinned ? <PinOff size={20} /> : <Pin size={20} />}
+                  </button>
                 </div>
                 <p className="note-content">{note.content}</p>
                 <div className="note-actions">

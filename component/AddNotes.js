@@ -12,6 +12,7 @@ function AddNotes({
       title: title,
       content: notes,
       createdAt: new Date().toLocaleDateString(),
+      isPinned: false,
     };
 
     setNotesList((prevNotes) => {

@@ -61,7 +61,7 @@ function MainMenu() {
   return (
     <div className="main-menu-container">
       <div className="menu-header">
-        <h1 className="app-title">ProductivityHub</h1>
+        <h1 className="app-title">TaskNest </h1>
         <p className="app-subtitle">Your all-in-one productivity companion</p>
       </div>
 

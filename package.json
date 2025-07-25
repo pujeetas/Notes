@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ant-design/icons": "^5.6.1",
     "lucide-react": "^0.525.0",
     "parcel": "^2.15.4",
     "react": "^19.1.0",

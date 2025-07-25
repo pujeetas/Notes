@@ -4,6 +4,7 @@ import MainMenu from "./MainMenu";
 import Notes from "./Notes";
 import Body from "./component/Body";
 import Profile from "./component/Profile";
+import ContactUs from "./component/ContactUs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -23,8 +24,11 @@ const router = createBrowserRouter([
         path: "/notes/profile",
         element: <Profile />,
       },
+      {
+        path: "/notes/contactUs",
+        element: <ContactUs />,
+      },
     ],
   },
-  // add more routes...
 ]);
 root.render(<RouterProvider router={router} />);

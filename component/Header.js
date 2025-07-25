@@ -20,7 +20,11 @@ function Header() {
               Notes Home
             </Link>
           </button>
-          <button>Contact Us</button>
+          <button>
+            <Link to={"/notes/contactUs"} className="nav-link">
+              Contact Us
+            </Link>
+          </button>
         </div>
       </div>
     </div>

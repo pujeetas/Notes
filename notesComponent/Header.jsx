@@ -11,11 +11,6 @@ function Header() {
             </Link>
           </button>
           <button>
-            <Link to={"/notes/profile"} className="nav-link">
-              Profile
-            </Link>
-          </button>
-          <button>
             <Link to={"/notes"} className="nav-link">
               Notes Home
             </Link>

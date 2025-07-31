@@ -14,14 +14,15 @@ A sleek, user-friendly React app to create, edit, delete, and search notes — a
 React (Hooks & Functional Components)
 localStorage for data persistence
 Lucide Icons for sleek UI icons
+Ant Design for Icons
 
 🗂️ Project Structure Overview
-Body.jsx — Main container & state manager
-Search.jsx — Live search input and filtering logic
-AddNotes.jsx — Note creation form
-Edit.jsx — Modal popup to edit notes
-DeleteNotes.jsx — Button component for note deletion
-RefreshSearch.jsx — Reset and refresh search results
+Body.js — Main container & state manager
+Search.js — Live search input and filtering logic
+AddNotes.js — Note creation form
+Edit.js — Modal popup to edit notes
+DeleteNotes.js — Button component for note deletion
+RefreshSearch.js — Reset and refresh search results
 
 💡 How It Works
 Notes are stored in React state and synced with your browser's localStorage.
@@ -30,8 +31,8 @@ Editing a note opens a modal with editable fields — save your changes instantl
 Delete notes easily, and all changes reflect immediately and persist between sessions.
 
 🌟 Future Improvements
+Create different productivity apps for different app cards
 Add note categories and tags for better organization
 Sort notes by date or title
 User authentication and cloud sync for cross-device access
 Mobile-friendly responsive design enhancements
-

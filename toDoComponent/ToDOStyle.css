@@ -1,0 +1,505 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 30px;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    color: #333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding-left: 5%;
+}
+
+.sidebar-icon:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.sidebar-icon.active {
+    background: #fff;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 0;
+}
+
+/* Header */
+.todo-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-icon,
+.notification-icon {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #333;
+}
+
+.date-display {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4%;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    cursor: pointer;
+    padding: 6px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0 30px;
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-tab {
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-tab.active {
+    color: #333;
+    border-bottom-color: #667eea;
+}
+
+/* Board Header */
+.board-header {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.board-icon {
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.board-actions {
+    width: 20px;
+    height: 20px;
+    background: #666;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* Board Content */
+.board-content {
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+}
+
+/* Columns */
+.column {
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.column-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.add-card-btn {
+    width: 24px;
+    height: 24px;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-card-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+/* Cards */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.del-edit-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.del-edit-container button {
+    background: none;
+    border-style: none;
+}
+
+.del-edit-container:hover {
+    cursor: pointer;
+}
+
+.edit-del-btn {
+    display: flex;
+    gap: 40%;
+    padding-right: 1rem;
+}
+
+.edit-btn:hover {
+    transform: scale(1.1);
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.card-subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.card-progress {
+    margin-bottom: 12px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.progress-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.progress-fill.orange {
+    background: linear-gradient(90deg, #ff9f43, #ff6348);
+}
+
+.progress-fill.blue {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.progress-fill.green {
+    background: linear-gradient(90deg, #2ed573, #7bed9f);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-date {
+    font-size: 12px;
+    color: #666;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.card-date.overdue {
+    background: #ffe6e6;
+    color: #e74c3c;
+}
+
+.card-date.normal {
+    background: #f8f9fa;
+    color: #666;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+.meta-icon {
+    width: 12px;
+    height: 12px;
+    background: #999;
+    border-radius: 2px;
+}
+
+/* Drag Area */
+.drag-area {
+    min-height: 200px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.drag-area:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50px;
+        padding: 15px 0;
+        gap: 20px;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .welcome-text {
+        font-size: 20px;
+    }
+
+    .nav-tabs {
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    .board-content {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .column {
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .board-content {
+        flex-direction: column;
+    }
+
+    .column {
+        min-width: 100%;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .date-display {
+        display: none;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Utility Classes */
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,6 +1,6 @@
 import { GithubFilled, LinkedinFilled, MailFilled } from "@ant-design/icons";
 import { useState } from "react";
-import "../ContactStyle.css";
+import "./ContactStyle.css";
 
 function Contact() {
   const [formData, setFormData] = useState({

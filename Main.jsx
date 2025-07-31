@@ -2,9 +2,9 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainMenu from "./MainMenu";
 import Notes from "./Notes";
-import Body from "./component/Body";
-import Profile from "./component/Profile";
-import ContactUs from "./component/ContactUs";
+import Body from "./notesComponent/Body";
+import ContactUs from "./notesComponent/ContactUs";
+import ToDO from "./toDoComponent/ToDo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -21,14 +21,14 @@ const router = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/notes/profile",
-        element: <Profile />,
-      },
-      {
         path: "/notes/contactUs",
         element: <ContactUs />,
       },
     ],
+  },
+  {
+    path: "/toDo",
+    element: <ToDO />,
   },
 ]);
 root.render(<RouterProvider router={router} />);

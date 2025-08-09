@@ -22,7 +22,7 @@
 
 /* Modal */
 .modal {
-    background: white;
+    background: #2e2e2e;
     border-radius: 8px;
     width: 90%;
     max-width: 500px;
@@ -34,7 +34,7 @@
 /* Modal Header */
 .modal-header {
     padding: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +43,7 @@
 .modal-header h2 {
     margin: 0;
     font-size: 20px;
+    color: #f1f1f1;
 }
 
 .modal-header button {
@@ -53,35 +54,49 @@
     padding: 0;
     width: 30px;
     height: 30px;
+    color: #f1f1f1;
 }
 
 /* Modal Body */
 .modal-body {
     padding: 20px;
+    background: #1f1f1f;
+    color: #f1f1f1;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 5px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    margin-top: 5px;
     font-weight: 500;
+    color: #f1f1f1;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
+    padding: 10px 14px;
+    border: 2px solid #4d4d4d;
     border-radius: 4px;
     font-size: 14px;
+    background: #2e2e2e;
+    color: #f1f1f1;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
 }
 
 .form-group textarea {
-    min-height: 60px;
+    min-height: 80px;
     resize: vertical;
 }
 
@@ -100,64 +115,80 @@
 .priority-options label {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     margin-bottom: 0;
     cursor: pointer;
+    color: #f1f1f1;
 }
 
 /* Reminder Inputs */
 .reminder-inputs {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     margin-top: 8px;
 }
 
 .reminder-inputs input {
     flex: 1;
+    background: #2e2e2e;
+    border: 2px solid #4d4d4d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #f1f1f1;
 }
 
 /* Subtasks */
 .subtasks-section {
-    background: #f8f9fa;
+    background: #2e2e2e;
     padding: 16px;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-top: 16px;
+    border: 2px solid #4d4d4d;
 }
 
 .subtasks-section h3 {
-    margin: 0 0 12px 0;
+    color: #f1f1f1;
+    margin-bottom: 12px;
     font-size: 16px;
 }
 
 .subtask-input-group {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 12px;
 }
 
 .subtask-input-group input {
     flex: 1;
+    background: #2e2e2e;
+    border: 2px solid #4d4d4d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #f1f1f1;
 }
 
 .subtask-input-group button {
     background: #007bff;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .subtasks-list {
+    color: #f1f1f1;
     max-height: 150px;
     overflow-y: auto;
+    padding-right: 6px;
 }
 
 .subtask-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 0;
+    padding: 6px 0;
+    border-bottom: 1px solid #444;
 }
 
 .subtask-item input[type="checkbox"] {
@@ -166,12 +197,13 @@
 
 .subtask-item span {
     flex: 1;
+    font-size: 14px;
 }
 
 .subtask-item button {
     background: none;
     border: none;
-    color: #dc3545;
+    color: #ff6b6b;
     cursor: pointer;
     padding: 2px 6px;
 }
@@ -179,18 +211,20 @@
 /* Modal Footer */
 .modal-footer {
     padding: 20px;
-    border-top: 1px solid #eee;
+    border-top: 2px solid #333;
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 10px;
+    background: #1f1f1f;
 }
 
 .modal-footer button {
-    padding: 8px 16px;
+    padding: 10px 18px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 500;
 }
 
 .modal-footer button:first-child {
@@ -202,6 +236,7 @@
     background: #007bff;
     color: white;
 }
+
 
 /* Mobile Responsive */
 @media (max-width: 576px) {

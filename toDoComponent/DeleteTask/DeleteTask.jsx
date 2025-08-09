@@ -1,5 +1,5 @@
 import { DeleteFilled } from "@ant-design/icons";
-import "./ToDOStyle.css";
+import "../DashboardStyle.css";
 
 const DeleteTask = ({ setDetailsList, detailsList, id }) => {
   function handleDeleteTask(id) {
@@ -7,11 +7,7 @@ const DeleteTask = ({ setDetailsList, detailsList, id }) => {
     setDetailsList(updatedList);
   }
   return (
-    <div>
-      <button className="delete-btn" onClick={() => handleDeleteTask(id)}>
-        <DeleteFilled />
-      </button>
-    </div>
+    <DeleteFilled className="delete-btn" onClick={() => handleDeleteTask(id)} />
   );
 };
 

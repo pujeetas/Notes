@@ -1,0 +1,64 @@
+import { EditFilled } from "@ant-design/icons";
+import "../DashboardStyle.css";
+import DeleteTask from "../DeleteTask/DeleteTask";
+import { useEffect } from "react";
+
+const InProgress = ({ setDetailsList, detailsList, handleEditClick }) => {
+  const options = { day: "2-digit", month: "long", year: "numeric" };
+  const date = new Date().toLocaleDateString("en-GB", options);
+
+  return (
+    <>
+      {[...detailsList]
+        .filter((task) => task.status === "progress")
+        .map((task, index) => (
+          <div key={index} className="card fade-in">
+            <div className="del-edit-container">
+              <div className="card-title">{task.title}</div>
+
+              <div className="edit-del-btn">
+                <EditFilled
+                  className="edit-btn"
+                  onClick={() => handleEditClick(task.id)}
+                />
+
+                <DeleteTask
+                  id={task.id}
+                  setDetailsList={setDetailsList}
+                  detailsList={detailsList}
+                />
+              </div>
+            </div>
+            <div className="card-subtitle">{task.subtitle}</div>
+            <div className="card-progress">
+              <div className="progress-label">
+                <span className="progress-text">Progress</span>
+                <span className="progress-value">{task.subTask.length}</span>
+              </div>
+              <div className="progress-bar">
+                <div
+                  className="progress-fill orange"
+                  style={{ width: "70%" }}
+                ></div>
+              </div>
+            </div>
+            <div className="card-footer">
+              <div className="card-date normal">{date}</div>
+              <div className="card-meta">
+                <div className="meta-item">
+                  <div className="meta-icon"></div>
+                  <span>2</span>
+                </div>
+                <div className="meta-item">
+                  <div className="meta-icon"></div>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+    </>
+  );
+};
+
+export default InProgress;

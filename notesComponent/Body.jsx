@@ -142,7 +142,11 @@ const Body = () => {
                     className="btn-pin"
                     onClick={() => handlePin(note.id)}
                   >
-                    {note.isPinned ? <PinOff size={20} /> : <Pin size={20} />}
+                    {note.isPinned ? (
+                      <PinOff size={20} color="white" />
+                    ) : (
+                      <Pin size={20} color="white" />
+                    )}
                   </button>
                 </div>
                 <p className="note-content">{note.content}</p>

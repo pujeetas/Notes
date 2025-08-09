@@ -30,12 +30,21 @@ const Done = ({ detailsList, setDetailsList, handleEditClick }) => {
             <div className="card-progress">
               <div className="progress-label">
                 <span className="progress-text">Progress</span>
-                <span className="progress-value">7/10</span>
+                <span className="progress-value">
+                  {task.subTask.filter((item) => item.complete).length}/
+                  {task.subTask.length}
+                </span>
               </div>
               <div className="progress-bar">
                 <div
                   className="progress-fill orange"
-                  style={{ width: "70%" }}
+                  style={{
+                    width:
+                      (task.subTask.filter((item) => item.complete).length /
+                        task.subTask.length) *
+                        100 +
+                      "%",
+                  }}
                 ></div>
               </div>
             </div>

@@ -40,10 +40,9 @@ const Todo = ({ detailsList, setDetailsList, handleEditClick }) => {
                   className="progress-fill orange"
                   style={{
                     width:
-                      (task.subTask.filter((item) => item.complete).length /
+                      ((task.subTask.filter((item) => item.complete).length /
                         task.subTask.length) *
-                        100 +
-                      "%",
+                        100 || 0) + "%",
                   }}
                 ></div>
               </div>

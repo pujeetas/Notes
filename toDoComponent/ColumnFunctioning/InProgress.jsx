@@ -1,7 +1,6 @@
 import { EditFilled } from "@ant-design/icons";
 import "../DashboardStyle.css";
 import DeleteTask from "../DeleteTask/DeleteTask";
-import { useEffect } from "react";
 
 const InProgress = ({ setDetailsList, detailsList, handleEditClick }) => {
   const options = { day: "2-digit", month: "long", year: "numeric" };
@@ -43,10 +42,11 @@ const InProgress = ({ setDetailsList, detailsList, handleEditClick }) => {
                   className="progress-fill orange"
                   style={{
                     width:
-                      (task.subTask.filter((item) => item.complete).length /
+                      task.subTask.length ===
+                      ((task.subTask.filter((item) => item.complete).length /
                         task.subTask.length) *
-                        100 +
-                      "%",
+                        100 || 0) +
+                        "%",
                   }}
                 ></div>
               </div>

@@ -54,6 +54,7 @@ const TaskForm = ({
           <div className="form-group">
             <label>Task Title *</label>
             <input
+              required
               type="text"
               placeholder="e.g., Design UI presentation"
               value={taskForm.title}

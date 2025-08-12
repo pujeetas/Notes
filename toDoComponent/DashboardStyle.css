@@ -58,50 +58,100 @@ body {
 
 /* Header */
 .todo-header {
-    background: transparent;
-    backdrop-filter: blur(10px);
-    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid hsl(var(--border));
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .welcome-text {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #f1f1f1;
+    color: white;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
-.search-icon,
-.notification-icon {
-    width: 20px;
-    height: 20px;
-    background: none;
-    border-radius: 50%;
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: auto;
+}
+
+.search-container input {
+    width: 0;
+    opacity: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px #2a2a2a;
+    border-radius: 0.5rem;
+    background: #414345;
+    color: white;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+    position: absolute;
+    right: 100%;
+    transform: translate(-0.5rem);
+}
+
+.search-container:hover input {
+    width: 200px;
+    opacity: 1;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #2e2e2e;
+    box-shadow: 0 0 0 2px;
+}
+
+.search-icon {
+    color: white;
+    font-size: 1.25rem;
     cursor: pointer;
-    color: #f1f1f1;
+    transition: color 0.2s ease;
+}
+
+.notification-icon {
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.notification-icon:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .date-display {
-    font-size: 14px;
-    color: #f1f1f1;
-    margin-top: 4%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .user-avatar {
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 2.5rem;
     border-radius: 50%;
-    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     cursor: pointer;
-    padding: 6px;
+    transition: 0.2s ease;
+}
+
+.user-avatar:hover {
+    background: rgb(64, 58, 58);
 }
 
 /* Navigation Tabs */

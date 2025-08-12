@@ -6,6 +6,8 @@ import Body from "./notesComponent/Body";
 import ContactUs from "./notesComponent/ContactUs";
 import Dashboard from "./toDoComponent/Dashboard";
 import DashboardRouter from "./toDoComponent/DashboardRouter";
+import Priority from "./toDoComponent/Priority";
+import TaskCentralRouter from "./toDoComponent/TaskCentralRouter";
 import TaskCentral from "./toDoComponent/TaskCentral";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -38,7 +40,17 @@ const router = createBrowserRouter([
       },
       {
         path: "taskCentral",
-        element: <TaskCentral />,
+        element: <TaskCentralRouter />,
+        children: [
+          {
+            index: true,
+            element: <TaskCentral />,
+          },
+          {
+            path: "priority",
+            element: <Priority />,
+          },
+        ],
       },
     ],
   },

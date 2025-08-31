@@ -1,14 +1,19 @@
 import ReactDOM from "react-dom/client";
+import { lazy, Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainMenu from "./MainMenu";
-import Notes from "./Notes";
+//import Notes from "./Notes";
 import Body from "./notesComponent/Body";
 import ContactUs from "./notesComponent/ContactUs";
-import Dashboard from "./toDoComponent/Dashboard";
+//import Dashboard from "./toDoComponent/Dashboard";
 import DashboardRouter from "./toDoComponent/DashboardRouter";
 import Priority from "./toDoComponent/Priority";
 import TaskCentralRouter from "./toDoComponent/TaskCentralRouter";
 import TaskCentral from "./toDoComponent/TaskCentral";
+
+const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
+
+const Notes = lazy(() => import("./Notes"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -18,7 +23,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/notes",
-    element: <Notes />,
+    element: (
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Notes />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
@@ -36,7 +45,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard />,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Dashboard />
+          </Suspense>
+        ),
       },
       {
         path: "taskCentral",

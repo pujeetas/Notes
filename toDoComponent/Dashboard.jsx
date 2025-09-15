@@ -7,7 +7,7 @@ import Todo from "./ColumnFunctioning/Todo";
 import "./DashboardStyle.css";
 import EditTask from "./EditTask/EditTask";
 
-const Dashboard = () => {
+const Dashboard = ({ detailsList, setDetailsList }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -21,11 +21,6 @@ const Dashboard = () => {
     dueDate: "",
     priority: "",
     subTask: [],
-  });
-
-  const [detailsList, setDetailsList] = useState(() => {
-    const data = localStorage.getItem("list");
-    return data ? JSON.parse(data) : [];
   });
 
   //setting list items in local storage

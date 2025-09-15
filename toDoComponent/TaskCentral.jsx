@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 import "./TaskCentralStyle.css";
-import { Link, Outlet } from "react-router-dom";
 
-const TaskCentral = () => {
+const TaskCentral = ({ detailsList }) => {
+  const highPriorityTasks = detailsList.filter(
+    (item) => item.priority === "high"
+  );
   return (
     <div className="task-dashboard">
       <div className="dashboard-header">
@@ -14,14 +17,14 @@ const TaskCentral = () => {
             <div className="section-header">
               <span className="section-icon">📌</span>
               <h2 className="section-title">Priority Tasks</h2>
-              <span className="section-count">0</span>
+              <span className="section-count">{highPriorityTasks.length}</span>
             </div>
             <div className="task-content">
               <p className="task-placeholder">
-                🔥 You’re all clear! Add your top priorities here.
+                🔥 You’re all clear! See your top priorities here.
               </p>
               <p className="add-task-hint">
-                Add your most important tasks here
+                See your most important tasks here
               </p>
             </div>
           </div>

@@ -63,7 +63,6 @@ body {
     align-items: center;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid hsl(var(--border));
-    position: sticky;
     top: 0;
     z-index: 100;
 }

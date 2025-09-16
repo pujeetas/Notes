@@ -134,6 +134,7 @@ const TaskForm = ({
               onChange={(e) =>
                 setTaskForm((prev) => ({ ...prev, dueDate: e.target.value }))
               }
+              value={taskForm.dueDate}
             />
           </div>
 

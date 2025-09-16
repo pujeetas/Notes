@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import "./TaskCentralStyle.css";
 
 const TaskCentral = ({ detailsList }) => {
-  const highPriorityTasks = detailsList.filter(
-    (item) => item.priority === "high"
-  );
+  const highPriorityTasks =
+    detailsList?.filter(
+      (item) => item.priority !== null && item.status !== "done"
+    ) || [];
+  const completedTask = detailsList.filter((item) => item.status === "done");
   return (
     <div className="task-dashboard">
       <div className="dashboard-header">
@@ -54,17 +56,21 @@ const TaskCentral = ({ detailsList }) => {
           </div>
         </div>
 
-        <div className="task-section completed-section">
-          <div className="section-header">
-            <span className="section-icon">✅</span>
-            <h2 className="section-title">Completed Tasks</h2>
-            <span className="section-count">0</span>
+        <Link to={"/toDo/taskCentral/completed"} className="tasks-grid-link">
+          <div className="task-section completed-section">
+            <div className="section-header">
+              <span className="section-icon">✅</span>
+              <h2 className="section-title">Completed Tasks</h2>
+              <span className="section-count">{completedTask.length}</span>
+            </div>
+            <div className="task-content">
+              <p className="task-placeholder">No completed tasks yet</p>
+              <p className="add-task-hint">
+                Your achievements will appear here
+              </p>
+            </div>
           </div>
-          <div className="task-content">
-            <p className="task-placeholder">No completed tasks yet</p>
-            <p className="add-task-hint">Your achievements will appear here</p>
-          </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

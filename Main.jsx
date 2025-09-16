@@ -5,10 +5,11 @@ import MainMenu from "./MainMenu";
 import Body from "./notesComponent/Body";
 import ContactUs from "./notesComponent/ContactUs";
 import DashboardRouter from "./toDoComponent/DashboardRouter";
-import Priority from "./toDoComponent/Priority";
 import TaskCentralRouter from "./toDoComponent/TaskCentralRouter";
 import TaskCentral from "./toDoComponent/TaskCentral";
 import { useState } from "react";
+import Completed from "./toDoComponent/Completed";
+import Priority from "./toDoComponent/Priority/Priority";
 
 const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
 
@@ -67,7 +68,16 @@ function App() {
             },
             {
               path: "priority",
-              element: <Priority detailsList={detailsList} />,
+              element: (
+                <Priority
+                  detailsList={detailsList}
+                  setDetailsList={setDetailsList}
+                />
+              ),
+            },
+            {
+              path: "completed",
+              element: <Completed detailsList={detailsList} />,
             },
           ],
         },

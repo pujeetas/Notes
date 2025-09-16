@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TaskForm from "../TaskForm";
 import "./AddTaskStyle.css";
+import { v4 as uuidv4 } from "uuid";
 
 const AddTask = ({
   isAddModalOpen,
@@ -10,18 +11,24 @@ const AddTask = ({
   setTaskForm,
 }) => {
   const [subTaskText, setSubTaskText] = useState("");
-
   function handleCreateTask() {
     const newTaskId = {
       ...taskForm,
-      id: Date.now(),
+      id: uuidv4(),
+      createdAt: new Date().toLocaleTimeString("en-GB", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     };
     setDetailsList((prevItems) => [...prevItems, newTaskId]);
     setIsAddModalOpen(false);
   }
   function handleCreateSubtask() {
     const newSubtask = {
-      id: Date.now(),
+      id: uuidv4(),
       text: subTaskText,
       complete: false,
     };

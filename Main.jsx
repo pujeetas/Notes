@@ -10,6 +10,7 @@ import TaskCentral from "./toDoComponent/TaskCentral";
 import { useState } from "react";
 import Completed from "./toDoComponent/Completed";
 import Priority from "./toDoComponent/Priority/Priority";
+import Today from "./toDoComponent/Today";
 
 const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
 
@@ -78,6 +79,10 @@ function App() {
             {
               path: "completed",
               element: <Completed detailsList={detailsList} />,
+            },
+            {
+              path: "today",
+              element: <Today detailsList={detailsList} />,
             },
           ],
         },

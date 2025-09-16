@@ -122,7 +122,9 @@ const TaskForm = ({
                 <option value="">Select...</option>
                 <option value="todo">To-do</option>
                 <option value="progress">In Progress</option>
-                <option value="done">Completed</option>
+                {taskForm.subTask !== null && (
+                  <option value="done">Completed</option>
+                )}
               </select>
             </div>
           </div>

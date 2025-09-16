@@ -4,9 +4,11 @@ import "./TaskCentralStyle.css";
 const TaskCentral = ({ detailsList }) => {
   const highPriorityTasks =
     detailsList?.filter(
-      (item) => item.priority !== null && item.status !== "done"
+      (item) => item.priority !== "" && item.status !== "done"
     ) || [];
   const completedTask = detailsList.filter((item) => item.status === "done");
+
+  console.log(highPriorityTasks);
   return (
     <div className="task-dashboard">
       <div className="dashboard-header">
@@ -32,17 +34,19 @@ const TaskCentral = ({ detailsList }) => {
           </div>
         </Link>
 
-        <div className="task-section today-section">
-          <div className="section-header">
-            <span className="section-icon">🗓️</span>
-            <h2 className="section-title">Today's Tasks</h2>
-            <span className="section-count">0</span>
+        <Link className="tasks-grid-link" to={"/toDo/taskCentral/today"}>
+          <div className="task-section today-section">
+            <div className="section-header">
+              <span className="section-icon">🗓️</span>
+              <h2 className="section-title">Today's Tasks</h2>
+              <span className="section-count">0</span>
+            </div>
+            <div className="task-content">
+              <p className="task-placeholder">No tasks for today</p>
+              <p className="add-task-hint">Plan your day effectively</p>
+            </div>
           </div>
-          <div className="task-content">
-            <p className="task-placeholder">No tasks for today</p>
-            <p className="add-task-hint">Plan your day effectively</p>
-          </div>
-        </div>
+        </Link>
 
         <div className="task-section upcoming-section">
           <div className="section-header">

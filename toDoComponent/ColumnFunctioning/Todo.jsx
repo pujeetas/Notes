@@ -2,8 +2,6 @@ import { EditFilled } from "@ant-design/icons";
 import DeleteTask from "../DeleteTask/DeleteTask";
 
 const Todo = ({ detailsList, setDetailsList, handleEditClick }) => {
-  const options = { day: "2-digit", month: "long", year: "numeric" };
-  const date = new Date().toLocaleDateString("en-GB", options);
   return (
     <>
       {[...detailsList]
@@ -48,17 +46,8 @@ const Todo = ({ detailsList, setDetailsList, handleEditClick }) => {
               </div>
             </div>
             <div className="card-footer">
-              <div className="card-date normal">{date}</div>
-              <div className="card-meta">
-                <div className="meta-item">
-                  <div className="meta-icon"></div>
-                  <span>2</span>
-                </div>
-                <div className="meta-item">
-                  <div className="meta-icon"></div>
-                  <span>1</span>
-                </div>
-              </div>
+              <div className="card-date normal">{task.createdAt}</div>
+              <div className="card-meta"></div>
             </div>
           </div>
         ))}

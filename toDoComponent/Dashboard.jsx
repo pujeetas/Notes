@@ -15,6 +15,7 @@ const Dashboard = ({ detailsList, setDetailsList }) => {
     id: "",
     title: "",
     subtitle: "",
+    createdAt: "",
     description: "",
     category: "",
     status: "",
@@ -41,6 +42,7 @@ const Dashboard = ({ detailsList, setDetailsList }) => {
     setTaskForm({
       id: "",
       title: "",
+      createdAt: "",
       subtitle: "",
       description: "",
       category: "",

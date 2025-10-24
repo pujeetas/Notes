@@ -9,6 +9,7 @@ A sleek, user-friendly React app to create, edit, delete, and search notes — a
 🔍 Live Search: Instantly filter notes as you type
 💾 Persistence: Notes saved in your browser via localStorage
 🧩 Modular Components: Clean, reusable React components for maintainability
+👩‍💻SignIn/SignUp and also Rest password
 
 🛠️ Tech Stack
 React (Hooks & Functional Components)

@@ -4,7 +4,7 @@ import DeleteNotes from "./DeleteNotes";
 import Edit from "./Edit";
 import Search from "./Search";
 import { Pin, PinOff } from "lucide-react";
-import "../NotesStyle.css";
+import "./NotesStyle.css";
 
 const Body = () => {
   const [title, setTitle] = useState("");

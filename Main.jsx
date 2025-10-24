@@ -10,13 +10,15 @@ import TaskCentral from "./toDoComponent/TaskCentral";
 import { useState } from "react";
 import Completed from "./toDoComponent/Completed";
 import Priority from "./toDoComponent/Priority/Priority";
-import Today from "./toDoComponent/Today";
+import TodayTask from "./toDoComponent/TodayTask/TodayTask";
+import Login from "./Login";
+import "./styles.css";
 
 const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
 
-const Notes = lazy(() => import("./Notes"));
+const Notes = lazy(() => import("./notesComponent/Notes"));
 
-function App() {
+function Main() {
   const [detailsList, setDetailsList] = useState(() => {
     const data = localStorage.getItem("list");
     return data ? JSON.parse(data) : [];
@@ -24,6 +26,10 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/main",
       element: <MainMenu />,
     },
     {
@@ -45,7 +51,7 @@ function App() {
       ],
     },
     {
-      path: "/toDo",
+      path: "/to-do",
       element: <DashboardRouter />,
       children: [
         {
@@ -60,7 +66,7 @@ function App() {
           ),
         },
         {
-          path: "taskCentral",
+          path: "taskcentral",
           element: <TaskCentralRouter />,
           children: [
             {
@@ -82,7 +88,7 @@ function App() {
             },
             {
               path: "today",
-              element: <Today detailsList={detailsList} />,
+              element: <TodayTask detailsList={detailsList} />,
             },
           ],
         },
@@ -93,4 +99,4 @@ function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<Main />);

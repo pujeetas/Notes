@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./CompletedStyle.css";
+import { X } from "lucide-react";
 
 const Completed = ({ detailsList }) => {
   console.log(detailsList);
@@ -21,8 +22,10 @@ const Completed = ({ detailsList }) => {
                 </p>
               </div>
             </div>
-            <Link to={"/toDo/taskCentral"}>
-              <button className="completed-modal-close">×</button>
+            <Link to={"/to-do/taskcentral"}>
+              <button className="completed-modal-close">
+                <X />
+              </button>
             </Link>
           </div>
 

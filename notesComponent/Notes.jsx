@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./notesComponent/Header";
+import Header from "../Header";
 import "./NotesStyle.css";
 
 const Notes = () => {

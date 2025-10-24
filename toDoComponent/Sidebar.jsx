@@ -11,12 +11,12 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-icon">
-        <Link to={"/"}>
+        <Link to={"/main"}>
           <MenuOutlined style={{ color: "white" }} />
         </Link>
       </div>
       <div className="sidebar-icon">
-        <Link to={"/toDo"}>
+        <Link to={"/to-do"}>
           <HomeOutlined style={{ color: "white" }} />
         </Link>
       </div>
@@ -24,7 +24,7 @@ const Sidebar = () => {
         <LineChartOutlined style={{ color: "white" }} />
       </div>
       <div className="sidebar-icon">
-        <Link to={"/toDo/taskCentral"}>
+        <Link to={"/to-do/taskcentral"}>
           <TagsOutlined style={{ color: "white" }} />
         </Link>
       </div>

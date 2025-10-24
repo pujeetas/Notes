@@ -61,7 +61,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 1.2rem;
     border-bottom: 1px solid hsl(var(--border));
     top: 0;
     z-index: 100;
@@ -147,10 +147,6 @@ body {
     color: white;
     cursor: pointer;
     transition: 0.2s ease;
-}
-
-.user-avatar:hover {
-    background: rgb(64, 58, 58);
 }
 
 /* Navigation Tabs */

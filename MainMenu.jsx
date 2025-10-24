@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import "./MainMenuStyle.css";
+import Header from "./Header";
 
 function MainMenu() {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ function MainMenu() {
       name: "To-Do List",
       description: "Manage your daily tasks efficiently",
       icon: "✅",
-      path: "/todo",
+      path: "/to-do",
       color: "#48bb78",
     },
     {
@@ -59,30 +61,33 @@ function MainMenu() {
   };
 
   return (
-    <div className="main-menu-container">
-      <div className="menu-header">
-        <h1 className="app-title">TaskNest </h1>
-        <p className="app-subtitle">Your all-in-one productivity companion</p>
-      </div>
+    <div>
+      <Header />
+      <div className="main-menu-container ">
+        <div className="menu-header">
+          <h1 className="app-title">TaskNest </h1>
+          <p className="app-subtitle">Your all-in-one productivity companion</p>
+        </div>
 
-      <div className="menu-grid">
-        {menuItems.map((item) => (
-          <div
-            key={item.id}
-            className="menu-card"
-            onClick={() => handleCardClick(item.path)}
-            style={{ "--card-color": item.color }}
-          >
-            <div className="card-icon-container">
-              <span className="card-icon">{item.icon}</span>
+        <div className="menu-grid">
+          {menuItems.map((item) => (
+            <div
+              key={item.id}
+              className="menu-card"
+              onClick={() => handleCardClick(item.path)}
+              style={{ "--card-color": item.color }}
+            >
+              <div className="card-icon-container">
+                <span className="card-icon">{item.icon}</span>
+              </div>
+              <div className="card-content">
+                <h3 className="card-title">{item.name}</h3>
+                <p className="card-description">{item.description}</p>
+              </div>
+              <div className="card-arrow">→</div>
             </div>
-            <div className="card-content">
-              <h3 className="card-title">{item.name}</h3>
-              <p className="card-description">{item.description}</p>
-            </div>
-            <div className="card-arrow">→</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

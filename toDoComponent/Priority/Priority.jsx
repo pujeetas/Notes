@@ -1,6 +1,8 @@
 import "./Priority.css";
 import { useState } from "react";
 import PriorityModal from "./PriorityModal";
+import { X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Priority = ({ detailsList, setDetailsList }) => {
   const [selectedPriority, setSelectedPriority] = useState("High");
@@ -54,7 +56,7 @@ const Priority = ({ detailsList, setDetailsList }) => {
               </p>
             </div>
           </div>
-          <div className="priority-toggle">
+          <div className="priority-toggle w-1/6">
             {priorities.map((priority) => (
               <button
                 key={priority.value}
@@ -67,9 +69,14 @@ const Priority = ({ detailsList, setDetailsList }) => {
               </button>
             ))}
           </div>
+          <Link to={"/to-do/taskcentral"}>
+            <button className="completed-modal-close">
+              <X />
+            </button>
+          </Link>
         </div>
 
-        <div className="tasks-grid">
+        <div className="tasks-grid ">
           {filteredTasks.length > 0 ? (
             filteredTasks.map((task, index) => (
               <div

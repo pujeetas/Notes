@@ -46,6 +46,8 @@ const TaskCentral = ({ detailsList }) => {
         text: "#4682B4",
       },
       count: 0,
+      link: "/to-do/taskcentral/overdue",
+
       messages: ["No upcoming tasks", "Stay ahead with your planning"],
     },
     {

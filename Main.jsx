@@ -13,6 +13,7 @@ import Priority from "./toDoComponent/Priority/Priority";
 import TodayTask from "./toDoComponent/TodayTask/TodayTask";
 import Login from "./Login";
 import "./styles.css";
+import OverDueTask from "./toDoComponent/OverDueTask";
 
 const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
 
@@ -89,6 +90,10 @@ function Main() {
             {
               path: "today",
               element: <TodayTask detailsList={detailsList} />,
+            },
+            {
+              path: "overdue",
+              element: <OverDueTask detailsList={detailsList} />,
             },
           ],
         },

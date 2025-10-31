@@ -14,6 +14,8 @@ import TodayTask from "./toDoComponent/TodayTask/TodayTask";
 import Login from "./Login";
 import "./styles.css";
 import OverDueTask from "./toDoComponent/OverDueTask";
+import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 
 const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
 
@@ -27,18 +29,28 @@ function Main() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Login />,
+      element: (
+        <PublicRoute>
+          <Login />
+        </PublicRoute>
+      ),
     },
     {
       path: "/main",
-      element: <MainMenu />,
+      element: (
+        <ProtectedRoute>
+          <MainMenu />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/notes",
       element: (
-        <Suspense fallback={<h1>Loading</h1>}>
-          <Notes />
-        </Suspense>
+        <ProtectedRoute>
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Notes />
+          </Suspense>
+        </ProtectedRoute>
       ),
       children: [
         {
@@ -53,7 +65,11 @@ function Main() {
     },
     {
       path: "/to-do",
-      element: <DashboardRouter />,
+      element: (
+        <ProtectedRoute>
+          <DashboardRouter />
+        </ProtectedRoute>
+      ),
       children: [
         {
           index: true,

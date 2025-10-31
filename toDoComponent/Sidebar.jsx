@@ -28,9 +28,6 @@ const Sidebar = () => {
           <TagsOutlined style={{ color: "white" }} />
         </Link>
       </div>
-      <div className="sidebar-icon">
-        <MoonOutlined style={{ color: "white" }} />
-      </div>
     </div>
   );
 };

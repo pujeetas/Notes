@@ -1,11 +1,17 @@
-import { SearchOutlined, UserOutlined, BellOutlined } from "@ant-design/icons";
-import useUserStore from "./useUserStore";
-import { LogOut } from "lucide-react";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
+import {
+  BellOutlined,
+  LogoutOutlined,
+  MoonOutlined,
+  SearchOutlined,
+  SunOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+import { auth } from "./firebase";
+import useUserStore from "./hooks/useUserStore";
+import useTheme from "./hooks/useTheme";
 
 const Header = () => {
   const options = { day: "2-digit", month: "long", year: "numeric" };
@@ -17,57 +23,79 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  const isDark = useTheme((state) => state.isDark);
+  const toggleDark = useTheme((state) => state.toggleDark);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
         navigate("/");
       })
-      .catch((error) => {
-        // An error happened.
-        console.log("Profile update error:", error);
-      });
+      .catch((error) => console.log("Profile update error:", error));
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
         addUser({
           name: user.displayName,
           email: user.email,
         });
-
-        // ...
       } else {
-        // User is signed out
-        removeUser;
+        removeUser();
       }
     });
     return () => unsubscribe();
   }, []);
 
   return (
-    <div className="todo-header">
-      <div className="welcome-text">Welcome {newUser?.name}</div>
+    <div className="flex justify-between items-center px-5 py-5 border-b border-gray-200 dark:border-gray-700 z-[100] bg-gray-50 dark:bg-gray-800">
+      {/* Welcome Text */}
+      <div className="text-[1.5rem] font-semibold text-gray-900 dark:text-gray-100">
+        Welcome {newUser?.name}
+      </div>
 
-      <div className="header-right">
-        <div className="search-container">
-          <input type="text" placeholder="Search..." />
-          <SearchOutlined className="search-icon" />
+      {/* Right Section */}
+      <div className="flex items-center gap-4 sm:gap-6">
+        {/* Search */}
+        <div className="relative flex items-center group">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="absolute right-full -translate-x-2 w-0 opacity-0 py-2 px-3 border border-gray-600 dark:border-gray-500 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-all duration-300 group-hover:w-[200px] group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <SearchOutlined className="text-gray-900 dark:text-gray-100 text-xl cursor-pointer transition-colors duration-200 hover:text-blue-500" />
         </div>
 
-        <div className="notification-icon">
+        {/* Notifications */}
+        <div className="text-gray-900 dark:text-gray-100 text-xl cursor-pointer transition-transform duration-200 hover:scale-110 hover:rotate-3">
           <BellOutlined />
         </div>
 
-        <div className="date-display">{date}</div>
+        {/* Date */}
+        <div className="text-gray-800 dark:text-gray-200 text-sm font-medium whitespace-nowrap">
+          {date}
+        </div>
 
-        <div className="user-avatar">
+        {/* User Icon */}
+        <div className="cursor-pointer p-1 text-gray-900 dark:text-gray-100 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:rounded-md hover:text-gray-800 dark:hover:text-gray-200">
           <UserOutlined />
         </div>
-        <div className="cursor-pointer" onClick={handleSignOut}>
-          <LogOut color="white" size={19} />
+
+        {/* Dark Mode Toggle */}
+        <div
+          onClick={toggleDark}
+          className="cursor-pointer p-1 text-gray-900 dark:text-gray-100 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:rounded-md hover:text-gray-800 dark:hover:text-gray-200"
+        >
+          {isDark ? <SunOutlined /> : <MoonOutlined />}
+        </div>
+
+        {/* Logout */}
+        <div
+          onClick={handleSignOut}
+          className="cursor-pointer p-1 text-gray-900 dark:text-gray-100 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:rounded-md hover:text-gray-800 dark:hover:text-gray-200"
+        >
+          <LogoutOutlined />
         </div>
       </div>
     </div>

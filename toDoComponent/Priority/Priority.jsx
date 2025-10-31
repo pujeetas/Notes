@@ -4,7 +4,7 @@ import PriorityModal from "./PriorityModal";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Priority = ({ detailsList, setDetailsList }) => {
+const Priority = ({ detailsList }) => {
   const [selectedPriority, setSelectedPriority] = useState("High");
   const [modalState, setModalState] = useState({
     isOpen: false,

@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "./useUserStore";
+import useUserStore from "./hooks/useUserStore";
 import ForgotPassword from "./ForgotPassword";
 
 const Login = () => {
@@ -46,16 +46,18 @@ const Login = () => {
                 name: name.displayName,
                 email: email.current.value,
               });
-              navigate("/main");
+              navigate("/main", { replace: true });
             })
             .catch((error) => {
               // An error occurred
               console.log("Profile update error:", error);
+              navigate("/", { replace: true });
             });
         })
         .catch((error) => {
           const errorMessage = error.message;
           console.log("Signup error:", error + errorMessage);
+          navigate("/", { replace: true });
         });
     } else {
       signInWithEmailAndPassword(
@@ -63,19 +65,14 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          addUser({
-            name: user.displayName,
-            email: user.email,
-          });
-          navigate("/main");
+        .then(() => {
           // ...
+          navigate("/main", { replace: true });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          navigate("/", { replace: true });
         });
     }
   };

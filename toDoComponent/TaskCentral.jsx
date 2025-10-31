@@ -5,7 +5,14 @@ const TaskCentral = ({ detailsList }) => {
     detailsList?.filter((t) => t.priority && t.status !== "done") || [];
   const completedTasks = detailsList?.filter((t) => t.status === "done") || [];
 
-  console.log(detailsList);
+  const today = new Date().toISOString().split("T")[0];
+  const todayTask = detailsList.filter(
+    (t) => t.dueDate === today && t.status !== "done"
+  );
+
+  const overdue = detailsList.filter(
+    (t) => t.dueDate < today && t.status !== "done"
+  );
 
   const cards = [
     {
@@ -19,10 +26,14 @@ const TaskCentral = ({ detailsList }) => {
       count: highPriorityTasks.length,
       link: "/to-do/taskcentral/priority",
       messages: highPriorityTasks.length
-        ? ["🔥 Click to see your priority task"]
+        ? [
+            `🚨 Heads up! You’ve got ${highPriorityTasks.length} priority task${
+              highPriorityTasks.length > 1 ? "s" : ""
+            } waiting!`,
+          ]
         : [
-            "🔥 You’re all clear! See your top priorities here.",
-            "See your most important tasks here",
+            "✅ All clear! No urgent tasks right now 🎉",
+            "Your top priorities will show up here when they pop up ✨",
           ],
     },
     {
@@ -33,9 +44,15 @@ const TaskCentral = ({ detailsList }) => {
         to: "rgba(255, 140, 105, 0.1)",
         text: "#FF6347",
       },
-      count: 0,
+      count: todayTask.length,
       link: "/to-do/taskcentral/today",
-      messages: ["No tasks for today", "Plan your day effectively"],
+      messages: todayTask.length
+        ? [
+            `🔥 Hey! You’ve got ${todayTask.length} task${
+              todayTask.length > 1 ? "s" : ""
+            } lined up for today!`,
+          ]
+        : ["😌 No tasks today", "Enjoy the calm… or plan something fun!"],
     },
     {
       title: "Overdue",
@@ -45,10 +62,16 @@ const TaskCentral = ({ detailsList }) => {
         to: "rgba(100, 149, 237, 0.1)",
         text: "#4682B4",
       },
-      count: 0,
+      count: overdue.length,
       link: "/to-do/taskcentral/overdue",
 
-      messages: ["No upcoming tasks", "Stay ahead with your planning"],
+      messages: overdue.length
+        ? [
+            `Heads up! You’ve got ${overdue.length} task${
+              overdue.length > 1 ? "s" : ""
+            } waiting for you 🚀`,
+          ]
+        : ["All clear! No tasks today 🎉", "Time to chill… or plan ahead 😉"],
     },
     {
       title: "Completed Tasks",
@@ -61,8 +84,15 @@ const TaskCentral = ({ detailsList }) => {
       count: completedTasks.length,
       link: "/to-do/taskcentral/completed",
       messages: completedTasks.length
-        ? ["Click to see your completed tasks"]
-        : ["No completed tasks yet", "Your achievements will appear here"],
+        ? [
+            `🎉 Woohoo! You’ve completed ${completedTasks.length} task${
+              completedTasks.length > 1 ? "s" : ""
+            }! Click to check them out 🚀`,
+          ]
+        : [
+            "No completed tasks yet 😅",
+            "Don’t worry, your achievements will appear here soon ✨",
+          ],
     },
   ];
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./TodayTaskStyle.css";
 
 const TodayTask = ({ detailsList }) => {
+  console.log(detailsList);
   const today = new Date();
   const isoDate = (str) => new Date(str).toISOString().slice(0, 10);
 
@@ -53,7 +54,7 @@ const TodayTask = ({ detailsList }) => {
                         </div>
                       </div>
                       <div className="task-details">
-                        <span className="task-time">⏰ Due: 2:00 PM</span>+{" "}
+                        <span className="task-time">⏰ {task.dueDate}</span>
                       </div>
                     </div>
                   </div>

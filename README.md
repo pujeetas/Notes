@@ -1,39 +1,125 @@
-📝 React Notes App
-Organize your thoughts effortlessly!
-A sleek, user-friendly React app to create, edit, delete, and search notes — all saved locally for your convenience.
+📝 React Productivity Suite
+Notes + Tasks + Priority Manager — all in one clean, modern UI.
+A unified React app that combines a Notes App, Task Management System, and Task Insights into one beautifully designed productivity tool.
+Built with React, Tailwind, Lucide Icons, and localStorage for persistence.
 
-🚀 Features
-✍️ Add Notes: Quickly jot down titles and details
-✏️ Edit Notes: Seamless modal editing for your entries
-❌ Delete Notes: Remove unwanted notes with a click
-🔍 Live Search: Instantly filter notes as you type
-💾 Persistence: Notes saved in your browser via localStorage
-🧩 Modular Components: Clean, reusable React components for maintainability
-👩‍💻SignIn/SignUp and also Rest password
+🚀 Feature Overview
+🗒️ Notes App
+✔ Create, Edit, Delete Notes
+Manage notes with titles, content, and attached data.
+
+✔ Live Search
+Filter notes instantly as you type.
+
+✔ Tags for Notes
+Add, remove, and manage tags for improved organization.
+
+✔ Sidebar Navigation
+Notes, Favorites, Images, Attachments, Recently Edited, etc.
+
+✔ Modern Editor
+Edit notes with a distraction-free interface.
+
+✔ Persistent Notes
+Saved in localStorage so your data stays even after a refresh.
+
+✅ Task Management Dashboard
+A fully redesigned Trello-style board with:
+
+✔ To-Do, In-Progress, Done Columns
+Each using a shared TaskCard component.
+
+✔ Modern Task Cards
+Priority badge
+Status badge
+Due date
+Hover actions
+Clean spacing & typography
+✔ Task Drawer (Add + Edit)
+A unified slide-in panel for:
+Title
+Subtitle
+Description
+Priority
+Status
+Due Date
+Subtasks
+Tags (optional)
+
+✔ Subtasks
+Add/remove subtasks inside the drawer.
+
+✔ Tags for Tasks
+Integrated system to label and organize tasks.
+
+✔ Fully Tailwind
+
+📊 TaskCentral — Smart Task Overview
+A modern dashboard providing insights into your tasks:
+
+✔ Priority Tasks
+Color-coded, modern cards showing all high/medium/low priority items.
+
+✔ Today’s Tasks
+Tasks scheduled for today with clean card UI.
+
+✔ Overdue Tasks
+Highlight late tasks with red indicators and urgency badges.
+
+✔ Completed Tasks
+Beautiful completion cards + stats:
+Completed today
+This week
+This month
+
+✔ Modern Grid Cards
+4-column responsive layout
+Accent bars, icon bubbles, subtle shadows, and minimalist design.
+
+🧩 Authentication
+Includes UI for:
+✔ Sign In
+✔ Sign Up
+✔ Reset Password
+(Front-end only — connect to backend later.)
 
 🛠️ Tech Stack
-React (Hooks & Functional Components)
-localStorage for data persistence
-Lucide Icons for sleek UI icons
-Ant Design for Icons
+React
+Tailwind CSS (fully migrated UI)
+Lucide Icons
+React Router
+localStorage
+Clean component architecture
 
-🗂️ Project Structure Overview
-Body.js — Main container & state manager
-Search.js — Live search input and filtering logic
-AddNotes.js — Note creation form
-Edit.js — Modal popup to edit notes
-DeleteNotes.js — Button component for note deletion
-RefreshSearch.js — Reset and refresh search results
+💡 How It All Works
+📝 Notes
+Stored in React state
+Synced to localStorage
+Search updates via useEffect
+Tags stored per note
 
-💡 How It Works
-Notes are stored in React state and synced with your browser's localStorage.
-The live search uses a controlled input that filters notes instantly as you type, powered by a React useEffect hook.
-Editing a note opens a modal with editable fields — save your changes instantly.
-Delete notes easily, and all changes reflect immediately and persist between sessions.
+📌 Tasks
+Stored in central dashboard state
+Drawer handles add/edit operations
+Reusable TaskCard displays each task
+Columns filter tasks by status
+Insights pages filter by priority/date
 
-🌟 Future Improvements
-Create different productivity apps for different app cards
-Add note categories and tags for better organization
-Sort notes by date or title
-User authentication and cloud sync for cross-device access
-Mobile-friendly responsive design enhancements
+🌟 Recent Enhancements
+✔ Complete Tailwind migration (Removed all vanilla CSS)
+✔ Modern TaskCentral UI
+✔ Rewritten Priority, Today, Overdue, Completed pages
+✔ Reusable TaskCard component
+✔ TaskDrawer replacing modals
+✔ UI matched across Notes + Tasks
+✔ Responsive grid layouts
+✔ Improved spacing, typography, card design
+✔ New folder structure for scalability
+
+🚧 Future Improvements
+Drag & drop tasks (react-beautiful-dnd)
+Cloud sync (Supabase / Firebase)
+Full user auth with JWT
+Dark mode toggle
+Sorting and filtering tools for notes & tasks
+Multi-device support

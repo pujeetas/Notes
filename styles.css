@@ -19,3 +19,51 @@
 .animate-fade-in {
     animation: fade-in .25s ease-out;
 }
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.animate-fadeUp {
+    animation: fadeUp 0.7s ease-out both;
+}
+
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.features-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #d0d0d0 transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+}

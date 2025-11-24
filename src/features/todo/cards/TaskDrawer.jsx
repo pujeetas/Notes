@@ -149,14 +149,14 @@ export default function TaskDrawer({
         <div className="mt-8 flex justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-md border border-gray-300"
+            className="cursor-pointer px-4 py-2 rounded-md border border-gray-300"
           >
             Cancel
           </button>
 
           <button
             onClick={onSubmit}
-            className="px-4 py-2 rounded-md bg-indigo-600 text-white"
+            className="cursor-pointer px-4 py-2 rounded-md bg-indigo-600 text-white"
           >
             {mode === "add" ? "Create" : "Save"}
           </button>
@@ -199,7 +199,7 @@ function SubtaskSection({ taskForm, setTaskForm }) {
         />
         <button
           onClick={add}
-          className="px-3 py-2 bg-indigo-600 text-white rounded-md"
+          className="cursor-pointer px-3 py-2 bg-indigo-600 text-white rounded-md"
         >
           Add
         </button>

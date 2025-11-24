@@ -17,7 +17,7 @@ import Priority from "../src/features/todo/TaskCentral/TaskCentralSections/Prior
 import TodayTask from "../src/features/todo/TaskCentral/TaskCentralSections/Today/Today";
 
 import SignupPage from "../src/SignupPage";
-
+import LandingPage from "./landingPage/LandingPage";
 import "../styles.css";
 
 function Main() {
@@ -27,7 +27,9 @@ function Main() {
   });
 
   const router = createBrowserRouter([
-    { path: "/", element: <SignupPage /> },
+    { path: "/", element: <LandingPage /> },
+    { path: "/signup", element: <SignupPage /> },
+
     { path: "/main", element: <MainMenu /> },
 
     { path: "/notes", element: <Notes /> },

@@ -2,24 +2,21 @@ import ReactDOM from "react-dom/client";
 import { lazy, Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainMenu from "./MainMenu";
-import Body from "./notesComponent/Body";
-import ContactUs from "./notesComponent/ContactUs";
-import DashboardRouter from "./toDoComponent/DashboardRouter";
-import TaskCentralRouter from "./toDoComponent/TaskCentralRouter";
-import TaskCentral from "./toDoComponent/TaskCentral";
+import Notes from "./src/features/notes/Notes";
+import DashboardRouter from "./src/features/todo/Dashboard/DashboardRouter";
+import TaskCentralRouter from "./src/features/todo/TaskCentral/TaskCentralRouter";
+import TaskCentral from "./src/features/todo/TaskCentral/TaskCentral";
 import { useState } from "react";
-import Completed from "./toDoComponent/Completed";
-import Priority from "./toDoComponent/Priority/Priority";
-import TodayTask from "./toDoComponent/TodayTask/TodayTask";
-import Login from "./Login";
+import Completed from "./src/features/todo/TaskCentral/TaskCentralSections/Completed/Completed";
+import Priority from "./src/features/todo/TaskCentral/TaskCentralSections/Priority/Priority";
+import TodayTask from "./src/features/todo/TaskCentral/TaskCentralSections/Today/Today";
 import "./styles.css";
-import OverDueTask from "./toDoComponent/OverDueTask";
-import ProtectedRoute from "./ProtectedRoute";
-import PublicRoute from "./PublicRoute";
+import OverDue from "./src/features/todo/TaskCentral/TaskCentralSections/Overdue/OverDue";
+import SignupPage from "./SignupPage";
 
-const Dashboard = lazy(() => import("./toDoComponent/Dashboard"));
+const Dashboard = lazy(() => import("./src/features/todo/Dashboard/Dashboard"));
 
-const Notes = lazy(() => import("./notesComponent/Notes"));
+//const Notes = lazy(() => import("./src/features/notes/Notes"));
 
 function Main() {
   const [detailsList, setDetailsList] = useState(() => {
@@ -29,47 +26,29 @@ function Main() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <PublicRoute>
-          <Login />
-        </PublicRoute>
-      ),
+      element: <SignupPage />,
     },
     {
       path: "/main",
-      element: (
-        <ProtectedRoute>
-          <MainMenu />
-        </ProtectedRoute>
-      ),
+      element: <MainMenu />,
     },
     {
       path: "/notes",
       element: (
-        <ProtectedRoute>
-          <Suspense fallback={<h1>Loading</h1>}>
-            <Notes />
-          </Suspense>
-        </ProtectedRoute>
+        <Suspense fallback={<h1>Loading</h1>}>
+          <Notes />
+        </Suspense>
       ),
       children: [
         {
           index: true,
-          element: <Body />,
-        },
-        {
-          path: "/notes/contactUs",
-          element: <ContactUs />,
+          element: <Notes />,
         },
       ],
     },
     {
       path: "/to-do",
-      element: (
-        <ProtectedRoute>
-          <DashboardRouter />
-        </ProtectedRoute>
-      ),
+      element: <DashboardRouter />,
       children: [
         {
           index: true,
@@ -109,7 +88,7 @@ function Main() {
             },
             {
               path: "overdue",
-              element: <OverDueTask detailsList={detailsList} />,
+              element: <OverDue detailsList={detailsList} />,
             },
           ],
         },

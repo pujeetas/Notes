@@ -7,6 +7,9 @@ export default {
       backgroundImage: {
         "dark-gradient": "linear-gradient(135deg, #232526 0%, #414345 100%)",
       },
+      fontFamily: {
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+      },
       keyframes: {
         cardSlideIn: {
           from: { opacity: "0", transform: "translateY(20px)" },

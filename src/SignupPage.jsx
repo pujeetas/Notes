@@ -1,18 +1,15 @@
-// SignupPage.jsx
-import React, { useState } from "react";
 import {
-  Mail,
-  User,
-  Lock,
+  ArrowRight,
+  Chrome,
   Eye,
   EyeOff,
-  ArrowRight,
-  Calendar,
-  BarChart3,
-  CheckCircle2,
   Github,
-  Chrome,
+  Lock,
+  Mail,
+  User,
 } from "lucide-react";
+import { GithubOutlined } from "@ant-design/icons";
+import { useState } from "react";
 
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -77,7 +74,7 @@ const SignupPage = () => {
               type="button"
               className="cursor-pointer flex items-center justify-center gap-2 border border-slate-200 rounded-md py-2 text-sm hover:bg-slate-100"
             >
-              <Github size={16} className="text-slate-700" />
+              <GithubOutlined size={16} className="text-slate-700" />
               GitHub
             </button>
           </div>
@@ -184,10 +181,7 @@ const SignupPage = () => {
           </p>
         </div>
 
-        {/* Right: Background with tiny decorative icons (merged, not boxed) */}
-        {/* Right: Full image with text overlay */}
         <aside className="relative hidden md:block">
-          {/* Full-cover image */}
           <img
             src="/rightIllustration.png"
             alt="Workspace"

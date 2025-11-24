@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./src/components/Header";
+import Header from "./components/Header";
 
 function MainMenu() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function MainMenu() {
       description: "Organize your thoughts and ideas",
       icon: "📝",
       path: "/notes",
-      color: "#667eea",
+      color: "text-indigo-500",
     },
     {
       id: "todo",
@@ -19,7 +19,7 @@ function MainMenu() {
       description: "Manage your daily tasks efficiently",
       icon: "✅",
       path: "/to-do",
-      color: "#48bb78",
+      color: "text-green-500",
     },
     {
       id: "calendar",
@@ -27,7 +27,7 @@ function MainMenu() {
       description: "Schedule events and appointments",
       icon: "📅",
       path: "/calendar",
-      color: "#4299e1",
+      color: "text-blue-500",
     },
     {
       id: "reminders",
@@ -35,7 +35,7 @@ function MainMenu() {
       description: "Set timely alerts for important tasks",
       icon: "🔔",
       path: "/reminders",
-      color: "#f56565",
+      color: "text-red-500",
     },
     {
       id: "focus",
@@ -43,7 +43,7 @@ function MainMenu() {
       description: "Boost productivity with timed sessions",
       icon: "⏱️",
       path: "/focus-timer",
-      color: "#ed8936",
+      color: "text-orange-500",
     },
     {
       id: "news",
@@ -51,7 +51,7 @@ function MainMenu() {
       description: "Your daily dose of tech",
       icon: "📰",
       path: "/tech-buzz",
-      color: "#00ee00",
+      color: "text-lime-500",
     },
   ];
 
@@ -61,9 +61,9 @@ function MainMenu() {
     <div>
       <Header />
 
-      <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-12">
+      <div className="min-h-screen bg-gray-50 px-4 py-12 flex flex-col items-center">
         {/* Title */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-2">
             DailyDeck
           </h1>
@@ -72,36 +72,38 @@ function MainMenu() {
           </p>
         </div>
 
-        {/* Menu Cards */}
-        <div className="grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-2">
+        {/* Cards */}
+        <div className="grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {menuItems.map((item) => (
             <div
               key={item.id}
               onClick={() => handleCardClick(item.path)}
               className="
-                group bg-white border border-slate-200 rounded-xl 
-                p-6 shadow-sm hover:shadow-md 
-                cursor-pointer transition-all
-                flex flex-col items-center text-center
-              "
+                group
+                bg-white border border-gray-200 rounded-xl p-6 shadow-sm
+                hover:shadow-md cursor-pointer transition
+                flex flex-col items-center text-center"
             >
-              {/* ICON */}
-              <div className="text-5xl mb-4">{item.icon}</div>
+              {/* Icon */}
+              <div className={`text-5xl mb-4 ${item.color}`}>{item.icon}</div>
 
-              {/* NAME */}
-              <h3 className="text-xl font-semibold text-slate-900 mb-1">
+              {/* Name */}
+              <h3 className="text-xl font-semibold text-slate-800 mb-1">
                 {item.name}
               </h3>
 
-              {/* DESCRIPTION */}
+              {/* Description */}
               <p className="text-slate-500 text-sm leading-snug">
                 {item.description}
               </p>
 
-              {/* Arrow */}
+              {/* CTA */}
               <span
-                className="mt-3 text-sm font-medium opacity-0 group-hover:opacity-100 transition-all"
-                style={{ color: item.color }}
+                className={`
+                  mt-3 text-sm font-medium opacity-0 
+                  group-hover:opacity-100 transition
+                  ${item.color}
+                `}
               >
                 Explore →
               </span>

@@ -1,4 +1,3 @@
-// DashboardTailwind.jsx
 import { PlusOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import Done from "../Column/Done";
@@ -90,7 +89,7 @@ export default function Dashboard({ detailsList, setDetailsList }) {
 
             <button
               onClick={handleCreateBtn}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 transition text-white px-4 py-2 rounded-full shadow-lg"
+              className="cursor-pointer inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-500 hover:from-indigo-600 hover:to-violet-600 transition text-white px-4 py-2 rounded-full shadow-lg"
             >
               <PlusOutlined />
               Add Task
@@ -119,7 +118,7 @@ export default function Dashboard({ detailsList, setDetailsList }) {
           />
 
           <div className="space-y-6">
-            {/* Filters bar (simple) */}
+            {/* Filters bar */}
             <div className="flex items-center gap-4">
               <button className="text-xs px-3 py-1 rounded-full bg-white/6">
                 All

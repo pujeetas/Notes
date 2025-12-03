@@ -8,6 +8,9 @@ Built with React, Tailwind, Lucide Icons, and localStorage for persistence.
 ✔ Create, Edit, Delete Notes
 Manage notes with titles, content, and attached data.
 
+✔ Advanced Rich Text Editor
+Headings, bold/italic, code blocks, inline code, lists, checklists, callouts, images, slash menu, and more.
+
 ✔ Live Search
 Filter notes instantly as you type.
 
